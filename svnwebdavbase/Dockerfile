@@ -8,7 +8,11 @@ RUN apt update; \
 	apt-get purge -y;
 
 # Enable newly installed modules
-RUN a2enmod proxy proxy_http authnz_ldap dav dav_svn authz_svn perl
+RUN a2enmod dav_svn authnz_ldap perl
+
+# COPY our self-signed CA authority root certificates 
+# COPY ./usr/local/share/ca-certificates /usr/local/share/ca-certificates
+# RUN update-ca-certificates --fresh
 
 EXPOSE 80
 
