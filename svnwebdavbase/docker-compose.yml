@@ -1,0 +1,16 @@
+version: '2'
+services:
+  svnwebdav:
+    image: andriypotapov/svnwebdavbase
+    container_name: svnwebdavbase
+    build: .
+    ports:
+     - "80:80"
+    #volumes: 
+     #- /opt/svn:/opt/svn
+     #- ./html:/var/www/html:ro
+     #- ./etc/apache2:/etc/apache2
+     #- ./etc/perl:/etc/perl
+     #- /etc/apache2/mods-enabled/dav_svn.conf:/etc/apache2/mods-enabled/dav_svn.conf
+     #- /opt/svn:/opt/svn
+     
