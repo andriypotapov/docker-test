@@ -1,0 +1,17 @@
+version: '2'
+services:
+  svnwebdav:
+    image: andriypotapov/svnwebdavbase:1.0
+    container_name: svnwebdav
+    #environment:
+    #  APACHE_RUN_USER: "cvs"
+    #  APACHE_RUN_GROUP: "cvs"
+    #build: .
+    ports:
+    - "8060:80"
+    restart: always
+    volumes: 
+      - ./etc/apache2/apache2.conf:/etc/apache2/apache2.conf:ro
+      - ./etc/perl/MyApache2/ConvertUsrToLowercase.pm:/etc/perl/MyApache2/ConvertUsrToLowercase.pm:ro
+      - ./html:/var/www/html:ro
+      - /opt/svn:/opt/svn      
