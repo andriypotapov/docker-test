@@ -1,0 +1,19 @@
+version: '2'
+services:
+    gitlab:
+      image: 'gitlab/gitlab-ce:10.3.5-ce.0'
+      restart: always
+      container_name: gitlab
+      #hostname: 'ubu-server'
+      #environment:
+         #GITLAB_OMNIBUS_CONFIG: |
+         #  external_url 'http://8.8.0.20:8090'
+           # Add any other gitlab.rb configuration here, each on its own line
+      ports:
+        - '8090:80'
+        - '9443:443'
+      volumes:
+        - '/opt/gitlab/config:/etc/gitlab'
+        - '/opt/gitlab/logs:/var/log/gitlab'
+        - '/opt/gitlab/data:/var/opt/gitlab'
+
